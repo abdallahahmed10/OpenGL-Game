@@ -1,0 +1,10 @@
+^C:\CAIRO UNIVERSITY\4TH YEAR - SENIOR 1\GRAPHICS\LUKA BRANCH\MAAB-GAME-ENGINE\BUILD\CMAKEFILES\506C84780762AF03231605EF47474232\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" "-SC:/Cairo University/4th year - senior 1/Graphics/Luka branch/MAAB-Game-Engine" "-BC:/Cairo University/4th year - senior 1/Graphics/Luka branch/MAAB-Game-Engine/build" --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file "C:/Cairo University/4th year - senior 1/Graphics/Luka branch/MAAB-Game-Engine/build/GFX-LAB.sln"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

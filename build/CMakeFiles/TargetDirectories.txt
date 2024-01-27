@@ -1,0 +1,5 @@
+C:/Cairo University/4th year - senior 1/Graphics/Luka branch/MAAB-Game-Engine/build/CMakeFiles/GAME_APPLICATION.dir
+C:/Cairo University/4th year - senior 1/Graphics/Luka branch/MAAB-Game-Engine/build/CMakeFiles/ALL_BUILD.dir
+C:/Cairo University/4th year - senior 1/Graphics/Luka branch/MAAB-Game-Engine/build/CMakeFiles/ZERO_CHECK.dir
+C:/Cairo University/4th year - senior 1/Graphics/Luka branch/MAAB-Game-Engine/build/vendor/glfw/CMakeFiles/ALL_BUILD.dir
+C:/Cairo University/4th year - senior 1/Graphics/Luka branch/MAAB-Game-Engine/build/vendor/glfw/src/CMakeFiles/glfw.dir

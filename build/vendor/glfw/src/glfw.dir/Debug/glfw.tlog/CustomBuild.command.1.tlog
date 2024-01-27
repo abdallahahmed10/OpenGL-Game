@@ -1,0 +1,10 @@
+^C:\CAIRO UNIVERSITY\4TH YEAR - SENIOR 1\GRAPHICS\LUKA BRANCH\MAAB-GAME-ENGINE\VENDOR\GLFW\SRC\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" "-SC:/Cairo University/4th year - senior 1/Graphics/Luka branch/MAAB-Game-Engine" "-BC:/Cairo University/4th year - senior 1/Graphics/Luka branch/MAAB-Game-Engine/build" --check-stamp-file "C:/Cairo University/4th year - senior 1/Graphics/Luka branch/MAAB-Game-Engine/build/vendor/glfw/src/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

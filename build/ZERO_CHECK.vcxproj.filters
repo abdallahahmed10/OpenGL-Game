@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Cairo University\4th year - senior 1\Graphics\Luka branch\MAAB-Game-Engine\build\CMakeFiles\506c84780762af03231605ef47474232\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{3F42F4E4-AFF6-3D01-A046-2FBC868F667D}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

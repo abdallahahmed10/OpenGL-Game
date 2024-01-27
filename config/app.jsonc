@@ -1,0 +1,434 @@
+{
+  "start-scene": "menu",
+  "window": {
+    "title": "Default Game Window",
+    "size": {
+      "width": 1920,
+      "height": 1080
+    },
+    "fullscreen": false
+  },
+  "scene": {
+    "renderer": {
+      "sky": "assets/textures/sky.jpg",
+      "postprocess": "assets/shaders/postprocess/vignette.frag"
+    },
+    "assets": {
+      "shaders": {
+        "tinted": {
+          "vs": "assets/shaders/tinted.vert",
+          "fs": "assets/shaders/tinted.frag"
+        },
+        "textured": {
+          "vs": "assets/shaders/textured.vert",
+          "fs": "assets/shaders/textured.frag"
+        },
+        "lit": {
+          "vs": "assets/shaders/light.vert",
+          "fs": "assets/shaders/light_array.frag"
+        }
+      },
+      "textures": {
+        "moon": "assets/textures/moon.jpg",
+        //"moon_albedo": "assets/textures/maze/Ground/albedo.jpg",
+        "moon_emissive": "assets/textures/maze/Ground/emissive.jpg",
+        "moon_specular": "assets/textures/maze/Ground/speculer.jpg",
+        //"moon_specular": "assets/textures/maze/Ground/emissive.jpg",
+        "moon_roughness": "assets/textures/maze/Ground/roughness.jpg",
+        "maze_walls": "assets/textures/maze/Wall/Maze_Walls.jpg",
+        "maze_floors": "assets/textures/maze/Ground/Maze_Floors.jpg",
+        "grass": "assets/textures/grass_ground_d.jpg",
+        "wood": "assets/textures/wood.jpg",
+        "glass": "assets/textures/glass-panels.png",
+        "monkey": "assets/textures/monkey.png"
+      },
+      "meshes": {
+        "cube": "assets/models/cube.obj",
+        "monkey": "assets/models/monkey.obj",
+        "maze": "assets/models/Maze3.obj",
+        "plane": "assets/models/plane.obj",
+        "sphere": "assets/models/sphere.obj",
+        "maze_walls": "assets/models/Maze_Walls.obj",
+        "maze_floors": "assets/models/Maze_Floors.obj",
+        "flash_light": "assets/models/Flashlight.obj"
+      },
+      "samplers": {
+        "default": {},
+        "pixelated": {
+          "MAG_FILTER": "GL_NEAREST"
+        }
+      },
+      "materials": {
+        "metal": {
+          "type": "tinted",
+          "shader": "tinted",
+          "pipelineState": {
+            "faceCulling": {
+              "enabled": false
+            },
+            "depthTesting": {
+              "enabled": true
+            }
+          },
+          "tint": [0.45, 0.4, 0.5, 1]
+        },
+        "glass": {
+          "type": "textured",
+          "shader": "textured",
+          "pipelineState": {
+            "faceCulling": {
+              "enabled": false
+            },
+            "depthTesting": {
+              "enabled": true
+            },
+            "blending": {
+              "enabled": true,
+              "sourceFactor": "GL_SRC_ALPHA",
+              "destinationFactor": "GL_ONE_MINUS_SRC_ALPHA"
+            },
+            "depthMask": false
+          },
+          "transparent": true,
+          "tint": [1, 1, 1, 1],
+          "texture": "glass",
+          "sampler": "pixelated"
+        },
+        "grass": {
+          "type": "textured",
+          "shader": "textured",
+          "pipelineState": {
+            "faceCulling": {
+              "enabled": false
+            },
+            "depthTesting": {
+              "enabled": true
+            }
+          },
+          "tint": [1, 1, 1, 1],
+          "texture": "grass",
+          "sampler": "default"
+        },
+        "monkey": {
+          "type": "textured",
+          "shader": "textured",
+          "pipelineState": {
+            "faceCulling": {
+              "enabled": false
+            },
+            "depthTesting": {
+              "enabled": true
+            }
+          },
+          "tint": [1, 1, 1, 1],
+          "texture": "monkey",
+          "sampler": "default"
+        },
+        "moon": {
+          "type": "textured",
+          "shader": "textured",
+          "pipelineState": {
+            "faceCulling": {
+              "enabled": false
+            },
+            "depthTesting": {
+              "enabled": true
+            }
+          },
+          "tint": [1, 1, 1, 1],
+          "texture": "moon",
+          "sampler": "default",
+          //"albedo": "moon_albedo",
+          "emissive": "moon_emissive",
+          "specular": "moon_specular",
+          "roughness": "moon_roughness"
+        },
+        "maze_walls": {
+          "type": "lit",
+          "shader": "lit",
+          "pipelineState": {
+            "faceCulling": {
+              "enabled": false
+            },
+            "depthTesting": {
+              "enabled": true
+            }
+          },
+          "tint": [1, 1, 1, 1],
+          "texture": "maze_walls",
+          "sampler": "default",
+          //"albedo": "maze_walls",
+          "emissive": "moon_emissive",
+          "specular": "moon_specular",
+          "roughness": "moon_roughness"
+        },
+        "maze_floors": {
+          "type": "lit",
+          "shader": "lit",
+          "pipelineState": {
+            "faceCulling": {
+              "enabled": false
+            },
+            "depthTesting": {
+              "enabled": true
+            }
+          },
+          "tint": [1, 1, 1, 1],
+          "texture": "maze_floors",
+          "sampler": "default",
+          //"albedo": "maze_floors",
+          "emissive": "moon_emissive",
+          "specular": "moon_specular",
+          "roughness": "moon_roughness"
+        }
+      }
+    },
+    "world": [
+      {
+        "position": [3, 4, 10],
+        "components": [
+          {
+            "type": "Camera"
+          },
+          {
+            "type": "Free Camera Controller"
+          },
+          {
+            "type": "light",
+            "typeOfLight": "SPOT",
+            "color": [1, 1, 1],
+            "direction": [1, -1, 0],
+            "diffuse": [1, 1, 1],
+            "specular": [0.5, 0.5, 0.5],
+            "cone_angles.in": 10,
+            "cone_angles.out": 70
+          }
+        ],
+        "children": [
+          {
+            "position": [1, -1, -1],
+            "rotation": [45, 45, 0],
+            "scale": [0.1, 0.1, 1.0],
+            "components": [
+              {
+                "type": "Mesh Renderer",
+                "mesh": "flash_light",
+                "material": "metal"
+              }
+            ]
+          }
+        ]
+      },
+      
+      {
+        "position": [0, 0, 0],
+        "rotation": [0, 0, 0],
+        "scale": [1, 1, 1],
+        "components": [
+          {
+            "type": "Mesh Renderer",
+            "mesh": "maze_walls",
+            "material": "maze_walls"
+          }
+        ]
+      },
+      {
+        "position": [0, 0, 0],
+        "rotation": [0, 90, 0],
+        "scale": [1, 1, 1],
+        "components": [
+          {
+            "type": "Mesh Renderer",
+            "mesh": "maze_floors",
+            "material": "maze_floors"
+          },
+          {
+            "type": "collision",
+            "boundingBox": [200, 3, 200]
+          }
+        ]
+      },
+      {
+        "position": [24, 30, 44],
+        "rotation": [-90, 0, -90],
+        "scale": [5, 5, 5],
+        "components": [
+          {
+            "type": "Mesh Renderer",
+            "mesh": "sphere",
+            "material": "moon"
+          },
+          // {
+          //   "type": "Movement",
+          //   "angularVelocity": [0, 90, 0]
+          // },
+          {
+            "type": "collision",
+            "boundingBox": [5, 5, 5]
+          },
+          {
+            "type": "light",
+            "typeOfLight": "SPOT",
+            "cone_angles.in": 10,
+            "cone_angles.out": 15,
+            "color": [0, 1, 0],
+            "direction": [0, -50, 0]
+          }
+        ]
+      },
+      {
+        "position": [9, 3, -5], // Right Wall
+        //"rotation": [0, 90, 0],
+        //"scale": [0.5, 0.5, 0.5],
+        "scale": [1, 1, 1],
+        "components": [
+          {
+            "type": "Mesh Renderer",
+            "mesh": "cube",
+            "material": "glass"
+          },
+          {
+            "type": "collision",
+            "boundingBox": [1.2, 5, 14.5]
+          }
+        ]
+      },
+      {
+        "position": [13.12, 3, -19.9], // Front wall extend along the other side
+        //   "rotation": [45, 45, 0],
+        //"scale": [0.5, 0.5, 0.5],
+        "scale": [1, 1, 1],
+        "components": [
+          {
+            "type": "Mesh Renderer",
+            "mesh": "cube",
+            "material": "glass"
+          },
+          {
+            "type": "collision",
+            "boundingBox": [15, 5, 2]
+          }
+        ]
+      },
+      {
+        "position": [-1.1, 3, -5.5], // Left wall extend along the other side
+        //   "rotation": [45, 45, 0],
+        //"scale": [0.5, 0.5, 0.5],
+        "scale": [1, 1, 1],
+        "components": [
+          {
+            "type": "Mesh Renderer",
+            "mesh": "cube",
+            "material": "glass"
+          },
+          {
+            "type": "collision",
+            "boundingBox": [2, 5, 25]
+          }
+        ]
+      },
+      {
+        "position": [-6.1, 3, 30], // Behind wall extend along the other side
+        //   "rotation": [45, 45, 0],
+        //"scale": [0.5, 0.5, 0.5],
+        "scale": [1, 1, 1],
+        "components": [
+          {
+            "type": "Mesh Renderer",
+            "mesh": "cube",
+            "material": "glass"
+          },
+          {
+            "type": "collision",
+            "boundingBox": [15, 5, 2]
+          }
+        ]
+      },
+      {
+        "position": [-11, 3, -21], // el wall msh faker el sar7a
+        //   "rotation": [45, 45, 0],
+        //"scale": [0.5, 0.5, 0.5],
+        "scale": [1, 1, 1],
+        "components": [
+          {
+            "type": "Mesh Renderer",
+            "mesh": "cube",
+            "material": "glass"
+          },
+          {
+            "type": "collision",
+            "boundingBox": [2, 5, 20]
+          }
+        ]
+      },
+      {
+        "position": [34, 3, -30], // el wall el twela el 3and el ne7ya el tanya
+        //   "rotation": [45, 45, 0],
+        //"scale": [0.5, 0.5, 0.5],
+        "scale": [1, 1, 1],
+        "components": [
+          {
+            "type": "Mesh Renderer",
+            "mesh": "cube",
+            "material": "glass"
+          },
+          {
+            "type": "collision",
+            "boundingBox": [25.5, 5, 2]
+          }
+        ]
+      },
+      {
+        "position": [19, 3, 29], // el wall el 3ala el ymeen 3nd el goal
+        //   "rotation": [45, 45, 0],
+        //"scale": [0.5, 0.5, 0.5],
+        "scale": [1, 1, 1],
+        "components": [
+          {
+            "type": "Mesh Renderer",
+            "mesh": "cube",
+            "material": "glass"
+          },
+          {
+            "type": "collision",
+            "boundingBox": [2, 5, 20]
+          }
+        ]
+      },
+      {
+        "position": [29, 3, 21], // el wall el 3ala el shmal 3nd el goal
+        //   "rotation": [45, 45, 0],
+        //"scale": [0.5, 0.5, 0.5],
+        "scale": [1, 1, 1],
+        "components": [
+          {
+            "type": "Mesh Renderer",
+            "mesh": "cube",
+            "material": "glass"
+          },
+          {
+            "type": "collision",
+            "boundingBox": [2, 5, 20]
+          }
+        ]
+      },
+      {
+        "position": [49, 3, 0], // el wall el eli 3la el shmal 5als 3nd el 2afla
+        //   "rotation": [45, 45, 0],
+        //"scale": [0.5, 0.5, 0.5],
+        "scale": [1, 1, 1],
+        "components": [
+          {
+            "type": "Mesh Renderer",
+            "mesh": "cube",
+            "material": "glass"
+          },
+          {
+            "type": "collision",
+            "boundingBox": [2, 5, 20]
+          }
+        ]
+      }
+    ]
+  }
+}
